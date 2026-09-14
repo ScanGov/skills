@@ -1,0 +1,13 @@
+{
+  "name": "scangov",
+  "owner": {
+    "name": "ScanGov"
+  },
+  "plugins": [
+    {
+      "name": "content-style",
+      "source": "./content-style",
+      "description": "Plain-language content style rules for ScanGov digital properties, plus attribute copy guidance for audits.json."
+    }
+  ]
+}

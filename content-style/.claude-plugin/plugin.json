@@ -1,0 +1,11 @@
+{
+  "name": "content-style",
+  "displayName": "ScanGov Content Style",
+  "version": "1.0.0",
+  "description": "Plain-language, inclusive content style rules for writing and reviewing copy across ScanGov digital properties.",
+  "author": {
+    "name": "ScanGov"
+  },
+  "repository": "https://github.com/ScanGov/skills",
+  "license": "UNLICENSED"
+}
