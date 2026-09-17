@@ -36,15 +36,8 @@ Reference for writing and reviewing prose, headings, and UI copy across ScanGov 
 
 **No government-only framing** unless the content is specifically about government (e.g., a `.gov` domain check, a government-organization schema check):
 - "citizens" → "users"
-- "visitors" → "users"
 - "government services" → "services"
 - "government records" → "data" or "confidential data"
-
-"Visitors" → "users" applies to ScanGov's own product and marketing copy, talking about ScanGov's audience. Third-person reporting *about another organization's site* and *its* visitors (a data post, a case study) is a different context — "visitor" is fine there.
-
-**"Digital," not "websites," when referring broadly.** A specific, named site is still "a site" or its name. The word "website(s)" is a flag to reconsider only when it's standing in for the whole category of digital properties/services.
-- ~~"We help agencies build better websites."~~ → "We help agencies build better digital services."
-- "scangov.com is a website that scans government websites." — the first "website" naming this specific site is fine; the second, referring broadly to the category, should be "digital properties" or "sites."
 
 **Singular "they."** Don't default to "he" or "she," and don't force "he/she."
 
