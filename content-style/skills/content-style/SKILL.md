@@ -40,6 +40,8 @@ Reference for writing and reviewing prose, headings, and UI copy across ScanGov 
 - "government services" → "services"
 - "government records" → "data" or "confidential data"
 
+"Visitors" → "users" applies to ScanGov's own product and marketing copy, talking about ScanGov's audience. Third-person reporting *about another organization's site* and *its* visitors (a data post, a case study) is a different context — "visitor" is fine there.
+
 **"Digital," not "websites," when referring broadly.** A specific, named site is still "a site" or its name. The word "website(s)" is a flag to reconsider only when it's standing in for the whole category of digital properties/services.
 - ~~"We help agencies build better websites."~~ → "We help agencies build better digital services."
 - "scangov.com is a website that scans government websites." — the first "website" naming this specific site is fine; the second, referring broadly to the category, should be "digital properties" or "sites."
@@ -61,8 +63,26 @@ Reference for writing and reviewing prose, headings, and UI copy across ScanGov 
 
 **Spell out acronyms on first use per page**, then use the acronym alone after.
 - "This check verifies the page has a Cascading Style Sheet (CSS) file that loads correctly. If the CSS file 404s, ..."
-- Common web/tech acronyms readers already know don't need spelling out: URL, HTML, CSS, PDF, FAQ, API, SEO, DNS, HTTP/HTTPS, AI, US, IP, GET, COVID.
+- Common web/tech acronyms readers already know don't need spelling out: URL, HTML, CSS, PDF, FAQ, API, SEO, DNS, HTTP/HTTPS, AI, IP, GET, COVID, IT.
 - Not acronyms, so don't try to "spell out": WCAG conformance levels (AA, AAA), Roman numerals in legal citations (ADA Title II), date-format placeholders (YYYY-MM-DD).
+
+**"US" → "U.S."** Always write it with periods, not as a bare acronym.
+- ~~"US government websites"~~ → "U.S. government websites"
+
+**No double quotes in headings.** Quotation marks in a heading signal an actual quotation, not emphasis or a "clever" turn of phrase.
+- ~~How to fix "broken" links~~ → How to fix broken links
+- "What customers are saying about ScanGov" is fine — quote marks appear inside the body quoting an actual person, not in the heading itself.
+
+**Tables follow the components reference.** Use `class="table"` wrapped in `.table-responsive`, with a `<caption class="visually-hidden">` describing the table's contents and `scope="col"` on header cells. Add `table-sm` only for dense data grids (CSV-style previews, data dictionaries). Never add `table-bordered`, `table-hover`, or `shadow` — `scangov.css` applies those automatically. See `components/public/templates/tables.html` for working markup.
+- Markdown table syntax (`| a | b |`) does **not** pick up these classes automatically on scangov-com — it renders as a bare `<table>`. Write the table as raw HTML inside the markdown file instead.
+
+**`<ol>` is for steps only.** Use an ordered list only when the reader must complete items in sequence (a how-to, a setup process). Everything else — features, examples, links, any collection without a required order — is a `<ul>`.
+
+**Stat-led bullets: percentage first, then the raw count in parentheses, then a short description.** One consistent order, every time — not "X count (Y%)" in one bullet and "Y% of things" with the count buried in a second sentence in the next.
+- Pattern: `**X% (N units)** — description.`
+- ~~"284 county websites (9.9%) turn an identified, polite bot away with..."~~ → "**9.9% (284 counties)** turn an identified, polite bot away — with..."
+- ~~"85.2% of county websites let the bot in. That is 2,435 of 2,858."~~ → "**85.2% (2,435 counties)** let the bot in."
+- A bullet with no natural percentage (a synthesis point, not a raw stat) doesn't need to force one in.
 
 **Descriptive link text.** Never "click here" or "read more" alone — the link text should say what it goes to.
 
@@ -84,3 +104,6 @@ Reference for writing and reviewing prose, headings, and UI copy across ScanGov 
 - Title case headings: ~~"Getting Started With ScanGov"~~ → "Getting started with ScanGov"
 - Missing Oxford comma: ~~"Scan, review and fix."~~ → "Scan, review, and fix."
 - Undefined acronym on first use: ~~"Check your CWV score."~~ → "Check your Core Web Vitals (CWV) score."
+- Double quotes in a heading for emphasis: ~~Why "AI-ready" content matters~~ → Why AI-ready content matters
+- A hand-styled table instead of the components pattern: ~~`<table class="table table-bordered table-hover shadow">`~~ → `<table class="table">` (border/hover/shadow are automatic)
+- `<ol>` for a non-sequential list: ~~numbered list of unrelated features~~ → `<ul>` (steps only get `<ol>`)
