@@ -43,7 +43,10 @@ repo root. It scaffolds a new file in `content/news/` with:
 6. `## Who's responsible` — the audience: who should act on or care about
    this finding. A plain bulleted `<ul>` (text only, no icons) from
    `_includes/who-list.html`, pulling role names from `_data/who.json` so
-   the list is one shared source of truth instead of retyped per report:
+   the list is one shared source of truth instead of retyped per report.
+   Each role links to its `/who-we-serve/{slug}/` audience page when the
+   `who.json` entry has a `slug`, so a reader can go straight from "this
+   applies to you" to the page that makes the case for that audience:
    ```njk
    {% set whoRoles = [
      "Executives",
