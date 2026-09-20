@@ -79,6 +79,10 @@ Reference for writing and reviewing prose, headings, and UI copy across ScanGov 
 
 **Descriptive link text.** Never "click here" or "read more" alone — the link text should say what it goes to.
 
+**Don't lead with "See."** "See the status guide," "See it in your dashboard" — state the fact or benefit directly and let the descriptive link text carry the reference; don't front-load the sentence or heading with "See."
+- ~~"See the docs for how it works."~~ → "The docs explain how it works."
+- ~~"## See it in your dashboard"~~ → "## Find your broken links" (name the benefit, not the act of looking)
+
 **Numerals.** Spell out one through nine; use numerals for 10 and above.
 
 ---
@@ -99,4 +103,5 @@ Reference for writing and reviewing prose, headings, and UI copy across ScanGov 
 - Undefined acronym on first use: ~~"Check your CWV score."~~ → "Check your Core Web Vitals (CWV) score."
 - Double quotes in a heading for emphasis: ~~Why "AI-ready" content matters~~ → Why AI-ready content matters
 - A hand-styled table instead of the components pattern: ~~`<table class="table table-bordered table-hover shadow">`~~ → `<table class="table">` (border/hover/shadow are automatic)
+- Leading with "See": ~~"See the status guide for what every badge means."~~ → "The status guide explains what every badge means."
 - `<ol>` for a non-sequential list: ~~numbered list of unrelated features~~ → `<ul>` (steps only get `<ol>`)
