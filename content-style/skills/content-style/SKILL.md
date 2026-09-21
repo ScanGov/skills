@@ -11,7 +11,7 @@ Reference for writing and reviewing prose, headings, and UI copy across ScanGov 
 
 ## Voice and language
 
-**Reading level:** 9th grade. Use short sentences and common words.
+**Reading level:** 6th grade. Use short sentences and common words.
 
 **Active voice.** Say who does what.
 - ~~"Data is encrypted by the site."~~ → "The site encrypts data."

@@ -30,22 +30,23 @@ Check `_data/features.json` for an entry that already covers this capability —
 Each entry:
 - `title`
 - `slug` — used in the detail page URL
-- `job` — one sentence, "why it matters," used as the detail-page lead. See "Voice" below.
-- `description` — one sentence, ~15-20 words, used on the card. See "Voice" below.
+- `description` — one sentence, ~15-20 words, used on the card and as the detail-page lead. See "Voice" below.
 - `icon` — a Font Awesome solid class name (no `fa-` prefix duplication)
 - `items` — 2-4 short bullet strings (`{ title }`), the capability's specifics
 - Optional: `video` (YouTube ID), `docsPath` (link to the relevant docs.scangov.org page), `workExample`
+
+There is no `job` field — it was removed (along with its `<p class="lead mb-4">` in `content/feature.html`) as a redundant second blurb alongside `description`. Don't reintroduce it.
 
 ---
 
 ## Voice: lead with user benefit, not implementation
 
-`job`, `description` (features listing), and a news post's frontmatter `description` should say what the reader or their site's visitors get out of the feature — not name the UI mechanism that delivers it. "Status badges," "a status guide," "one-click," and similar interface details belong in the body copy or `items`, not the lead.
+A feature's `description` (features listing) and a news post's frontmatter `description` should say what the reader or their site's visitors get out of the feature — not name the UI mechanism that delivers it. "Status badges," "a status guide," "one-click," and similar interface details belong in the body copy or `items`, not the lead.
 
 - Weak (names the UI): "Broken link tracking gets simpler status badges and a status guide explaining what each one means."
 - Strong (names the benefit): "Spot broken links on your site at a glance, so you can fix them before your visitors run into them."
 
-Also check `_data/features.json` for a theme word before reusing it in a new `job`/`description` — a second feature claiming the same word (e.g., "trust") reads as filler, not a fresh reason to care.
+Also check `_data/features.json` for a theme word before reusing it in a new `description` — a second feature claiming the same word (e.g., "trust") reads as filler, not a fresh reason to care.
 
 ---
 
