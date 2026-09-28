@@ -42,6 +42,14 @@ Optional:
 
 ---
 
+## Features section
+
+Pages get an automatic "Features" section — an h2 with a link to the matching feature page on scangov.com — with no markup needed in the content file. It's driven by `docs/_includes/feature-link.html`, which matches the current page's URL against `docsPath` in `scangov-com/_data/features.json` (fetched at build via `docs/_data/features.js`).
+
+If a page documents a feature that has (or should have) its own scangov.com feature page, set that feature's `docsPath` in `scangov-com/_data/features.json` to this page's URL (e.g. `/status-bar/`) — the section then appears with no docs-repo change beyond the content itself. Don't hand-add a "Features" heading or link to content files.
+
+---
+
 ## Navigation
 
 The sidenav is hand-maintained, not generated, in `_data/sidenav.json`, grouped into sections ("Get started", "Scanning & data", "Scoring", "Standards & guidance", "About & policies"). A new page needs its own entry in the right section. Extending an existing page needs no nav change.
