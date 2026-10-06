@@ -66,6 +66,9 @@ Reference for writing and reviewing prose, headings, and UI copy across ScanGov 
 - ~~How to fix "broken" links~~ → How to fix broken links
 - "What customers are saying about ScanGov" is fine — quote marks appear inside the body quoting an actual person, not in the heading itself.
 
+**Now scanning post headings.** The `h1` and page title of every scangov-com Now Scanning post is `Now scanning ... {domain}`, matching the YouTube video title. Set it as `page_title` in `_data/now_scanning.json`. Don't add descriptors such as "government website scorecard and review" (see the government-only framing rule above). The `description` is `A ScanGov review of {domain}: accessibility, security, usability, and AI-readiness scores and a video walkthrough.` Don't mention public scorecards; not every post has one.
+- ~~"maryland.gov government website scorecard and review"~~ → "Now scanning ... maryland.gov"
+
 **Tables follow the components reference.** Use `class="table"` wrapped in `.table-responsive`, with a `<caption class="visually-hidden">` describing the table's contents and `scope="col"` on header cells. Add `table-sm` only for dense data grids (CSV-style previews, data dictionaries). Never add `table-bordered`, `table-hover`, or `shadow` — `scangov.css` applies those automatically. See `components/public/templates/tables.html` for working markup.
 - Markdown table syntax (`| a | b |`) does **not** pick up these classes automatically on scangov-com — it renders as a bare `<table>`. Write the table as raw HTML inside the markdown file instead.
 
