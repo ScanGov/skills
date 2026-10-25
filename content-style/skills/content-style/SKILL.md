@@ -34,10 +34,14 @@ Reference for writing and reviewing prose, headings, and UI copy across ScanGov 
 
 ## Inclusive and neutral language
 
-**No government-only framing** unless the content is specifically about government (e.g., a `.gov` domain check, a government-organization schema check):
+**No government-specific references** in any copy unless the content is specifically about government (e.g., a `.gov` domain check, a government-organization schema check, the government rankings). This covers descriptions, headings, news posts, feature and tool copy, and calls to action. ScanGov serves any organization, so don't name an audience or a type of organization to describe who uses a feature:
 - "citizens" → "users"
 - "government services" → "services"
 - "government records" → "data" or "confidential data"
+- "see how your state or agency compares" → "track your progress" (drop "state," "agency," "city," "county," "department," "public sector," and "government" as the reader's label)
+- "government websites" → "websites"
+
+If the feature is about comparing groups (rankings), name the groups as data ("federal, state, and county sites"), not as the reader.
 
 **Singular "they."** Don't default to "he" or "she," and don't force "he/she."
 
@@ -100,7 +104,7 @@ Reference for writing and reviewing prose, headings, and UI copy across ScanGov 
 ## Anti-patterns (avoid)
 
 - Passive voice: ~~"Alt text should be added to images."~~ → "Add alt text to images."
-- Government-only framing outside government-specific content: ~~"Citizens rely on government websites for services."~~ → "People rely on digital services."
+- Government-specific references outside government-specific content: ~~"Citizens rely on government websites for services."~~ → "People rely on digital services." ~~"See how your state or agency compares."~~ → "Track your progress."
 - Title case headings: ~~"Getting Started With ScanGov"~~ → "Getting started with ScanGov"
 - Missing Oxford comma: ~~"Scan, review and fix."~~ → "Scan, review, and fix."
 - Undefined acronym on first use: ~~"Check your CWV score."~~ → "Check your Core Web Vitals (CWV) score."
