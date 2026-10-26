@@ -92,6 +92,8 @@ If the feature is about comparing groups (rankings), name the groups as data ("f
 
 **Numerals.** Spell out one through nine; use numerals for 10 and above.
 
+**Modified dates.** Whenever an existing page is edited, set its `modified` front matter to today's date (`YYYY-MM-DD`). New, unpublished pages get `date` only, no `modified`.
+
 ---
 
 ## Examples (good)
