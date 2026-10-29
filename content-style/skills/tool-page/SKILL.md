@@ -31,7 +31,7 @@ Use the shared include from ScanGov/components, `_includes/tool-form.html`. Set 
 {% include "tool-form.html" %}
 ```
 
-- The field is `name="site"` `id="site"`, with a required-field asterisk, `form-control-lg`, and a `btn btn-primary btn-lg` submit button with `id="submitbutton"`.
+- The field is `name="site"` `id="site"`, with a required-field asterisk, `form-control-lg`, and a `btn btn-primary` submit button with `id="submitbutton"` (see the `buttons` skill for button rules).
 - The button says what the tool does in one word, such as "Check". Do not use "Submit".
 - A tool with more than one field puts extra fields in a `<details>` labelled "Options" under the main field, as the policy generator does.
 - The tool's script binds to the form by `toolFormId`. Do not bind to a CSS class.

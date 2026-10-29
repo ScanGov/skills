@@ -7,6 +7,7 @@ Claude Code plugin marketplace for skills shared across ScanGov's repos.
 ```
 /plugin marketplace add ScanGov/skills
 /plugin install content-style@scangov
+/plugin install ui-components@scangov
 ```
 
 ## Plugins
@@ -17,3 +18,5 @@ Claude Code plugin marketplace for skills shared across ScanGov's repos.
   - `scorecard-page` — rules for the public scorecard: cards, indicator order, system light/dark theme, trend footers, and SEO.
   - `tool-page` — shared page shell and form for free tools on scangov.com.
   - `feature-announcement` — how to reflect a shipped or changed feature on scangov.com (the features listing and a news post).
+- **ui-components** — rules for the shared UI components used across ScanGov sites:
+  - `buttons` — the two button styles, when to use each, labels, icons, and what is not a button. Use it whenever a button, form submit or call to action is added or changed, so one-off styles are not created.

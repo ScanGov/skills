@@ -8,6 +8,11 @@
       "name": "content-style",
       "source": "./content-style",
       "description": "Plain-language content style rules for ScanGov digital properties, plus attribute copy guidance for audits.json."
+    },
+    {
+      "name": "ui-components",
+      "source": "./ui-components",
+      "description": "Rules for the shared UI components used across ScanGov sites, starting with buttons."
     }
   ]
 }
