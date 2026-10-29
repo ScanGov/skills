@@ -86,7 +86,7 @@ repo root. It scaffolds a new file in `content/news/` with:
      followed by a short, plain description of that field, not a narrative
      sentence trying to summarize every field in one breath. Then a
      download button:
-     `<a href="/data/FILE.csv" class="btn btn-outline-primary btn-sm">Download CSV</a>`.
+     `<a href="/data/FILE.csv" class="btn btn-outline-primary">Download CSV</a>` (a secondary button at the default size; see the `buttons` skill).
      This is the one deliberate exception to "no `.btn` in report body
      copy" (see "What to do next" below) — a raw-data download is a
      single, unambiguous action, unlike the more persuasive call to action

@@ -1,0 +1,11 @@
+{
+  "name": "ui-components",
+  "displayName": "ScanGov UI Components",
+  "version": "1.0.0",
+  "description": "Rules for the shared UI components used across ScanGov sites, starting with buttons.",
+  "author": {
+    "name": "ScanGov"
+  },
+  "repository": "https://github.com/ScanGov/skills",
+  "license": "UNLICENSED"
+}
