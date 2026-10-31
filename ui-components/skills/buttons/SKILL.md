@@ -85,7 +85,30 @@ A row of actions (page actions such as Rescan, Download, Share): secondary `btn-
 </div>
 ```
 
+A Download button that offers several formats is one secondary button with a `dropdown` menu, not a button per format. Label it "Download". Each menu item is a `dropdown-item` button named for the format and its extension, such as "Word (.doc)", "HTML (.html)", "Markdown (.md)" and "JSON (.json)". See `_includes/builder-actions.html` in scangov-com.
+
+```html
+<div class="dropdown">
+  <button type="button" id="download-menu" class="btn btn-outline-primary" data-bs-toggle="dropdown" aria-expanded="false">
+    <i class="fa-solid fa-download" aria-hidden="true"></i> Download
+  </button>
+  <ul class="dropdown-menu" aria-labelledby="download-menu">
+    <li><button type="button" class="dropdown-item" data-download="md">Markdown (.md)</button></li>
+  </ul>
+</div>
+```
+
 Busy: set `disabled`, swap the icon for `fa-compact-disc fa-spin`, use a present-tense label ("Scanning..."), and restore both when it finishes.
+
+Reset after a primary, on a form that takes input: a secondary `<button type="reset" class="btn btn-outline-primary">Reset</button>`. The tool form include adds it.
+
+Back, to the page the person came from: a secondary link with the left arrow, never a plain text link.
+
+```html
+<a href="/tools/policy-generator/done/" class="btn btn-outline-primary">
+  <i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Back
+</a>
+```
 
 Cancel after a primary:
 
