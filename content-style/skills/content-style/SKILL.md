@@ -114,3 +114,4 @@ If the feature is about comparing groups (rankings), name the groups as data ("f
 - A hand-styled table instead of the components pattern: ~~`<table class="table table-bordered table-hover shadow">`~~ → `<table class="table">` (border/hover/shadow are automatic)
 - Leading with "See": ~~"See the status guide for what every badge means."~~ → "The status guide explains what every badge means."
 - `<ol>` for a non-sequential list: ~~numbered list of unrelated features~~ → `<ul>` (steps only get `<ol>`)
+- Bold text as a heading: ~~`<p><strong>Outcome.</strong> People can use it.</p>`~~ → `<h4>Outcome</h4>` then `<p>People can use it.</p>`. Use real headings (`h2`, `h3`, `h4`) for every label that introduces content, in order, without skipping a level. Use a `<dl>` for label and value pairs. Do not use `<strong>`, `<b>` or `fw-bold` for structure or emphasis unless asked.

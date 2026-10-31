@@ -12,10 +12,16 @@ Every tool under `content/tools/` uses the same page shell and the same form. Do
 ## Page shell
 
 - Front matter: `layout: layouts/default`, `isTool: true`, `permalink: /tools/{slug}/`, plus `title` and `description`.
-- Body: `container` > `row` > three columns, `col-md-2` (empty), `col-md-8` (the tool), `col-md-2` (empty).
-- Order inside the middle column: the form, then a loading block (if the tool needs one), then the results block, then the `alert alert-info` "About" box with the tool's explanation and FAQ.
+- Body: `container page-section` (the border below the tool separates it from the related content) > `row` > three columns, `col-md-2` (empty), `col-md-8` (the tool), `col-md-2` (empty).
+- Nothing goes above the form. No intro paragraph or heading; the page title and description already say what the tool is. The one exception is a link to an example result. Its text is always just "Example", in the breadcrumb font (`font-monospace small`), with the `fa-spray-can-sparkles` icon, and it opens in the same tab (no `target="_blank"`).
+- Breadcrumb: Tools > the tool. In the tool's front matter, set `breadcrumbParent` to `/tools/` titled "Tools" and `breadcrumbCurrent` to its `toolName`.
+- Order inside the middle column: the form, then a loading block (if the tool needs one), then the results block, then one `alert alert-info mt-5` box (the extra top margin sets it apart from the form). All information about the tool goes in that one box: the explanation, guidance, and the FAQ (`{% include "faq.html" %}` as its last child). Do not add separate sections for tool information outside it.
 
-Reference pages: `content/tools/good-bot-scan.html` and `content/tools/readability/index.html`.
+- End the page with `{% include "tool-related.html" %}`. It sits outside the narrow tool column, at the full site width with three cards per row, like the rest of the site. Set `indicator` in front matter for one indicator, or `toolIndicators` (a list of indicator urls) for a tool that covers several. Do not name the list `indicators`; that is the site-wide data.
+- Set `toolName`, `date`, `modified`, `author`, `ogImage` and `ogImageAlt` in front matter, like the other tools.
+- Fire `gtag('event', 'tool_run', { tool: '{slug}' })` on submit.
+
+Reference pages: `content/tools/good-bot-scan.html` and `content/tools/readability/index.html` (single field), `content/tools/policy-generator/index.html` (several fields).
 
 ---
 
@@ -31,10 +37,27 @@ Use the shared include from ScanGov/components, `_includes/tool-form.html`. Set 
 {% include "tool-form.html" %}
 ```
 
+- Leave the placeholder empty unless it shows a real format the person must follow, such as a URL. Do not use made-up example names like "City of Example".
 - The field is `name="site"` `id="site"`, with a required-field asterisk, `form-control-lg`, and a `btn btn-primary` submit button with `id="submitbutton"` (see the `buttons` skill for button rules).
+- The form ends with the shared Reset button (`type="reset"`, secondary, `id="resetbutton"`), after the submit button. The include adds it. A tool that shows results clears them on the form's `reset` event (see `public/js/readit.js` and `scan-check.js`).
 - The button says what the tool does in one word, such as "Check". Do not use "Submit".
-- A tool with more than one field puts extra fields in a `<details>` labelled "Options" under the main field, as the policy generator does.
+- The fixed call-to-action band (`cta.html`) on tool pages and their generated-document pages does not show the Link and Text buttons, because the tool has its own. Set `hideCtaCopy: true` on a document page that is not `isTool`.
+- A reading level option lists plain grade levels (Kindergarten to College), not ARI scores. A WCAG option lists levels AA and AAA.
+- Do not write "Free" in a tool's `description`.
+- A tool with more than one field puts the extra fields under the main field, always visible. Do not hide them in a `<details>` or accordion. Capture them with `{% set toolFormExtra %}...{% endset %}` before the include. Set `toolFieldName` when the main field is not a site (it sets the input name and id), and `toolFormAction` when the form submits to another page.
+- No extraneous spacing on forms. The shared form is a `row g-3`, so the gutters set the space. Put each extra field in a `col-*` div. Do not add `mb-*`, `mt-*` or `p-*` classes to fields, fieldsets or the button. Where a field needs space between its own parts (such as a stack of inputs), use `gap-*`. The same goes for the whole page: add no margin or padding classes unless asked.
+- Every field in the form is the same size (`form-control-lg`, `form-select-lg`). Do not mix sizes.
+- No placeholder on a field unless it shows a format the person must follow. Website and owner fields get none.
+- List the options in the order of the ScanGov indicators the tool covers, with the one the tool is about first.
+- A field that can repeat (websites, tools) starts with one field, or none, and an "Add" `btn-sm` button. The button is disabled until every field in the list is filled in. Reset removes the added fields.
+- Show only options that change the result. If an option does not change the output, cut it.
 - The tool's script binds to the form by `toolFormId`. Do not bind to a CSS class.
+
+---
+
+## Tools that generate a document
+
+The policy generator and the RFP builder submit to a `done` page and a `print` page, both `sitemap: false` and `noindex: true`. The done page uses `_includes/builder-actions.html` (copy link, copy text, print, edit answers) and `public/js/builder-actions.js`. Do not write inline `onclick` handlers. Do not ship a button for something that is not built.
 
 ---
 
