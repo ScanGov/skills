@@ -191,6 +191,6 @@ grep -rnE 'class="[^"]*\bbtn\b' <changed files>
 
 ## Where this lives
 
-- Button CSS: `public/css/scangov.css` in ScanGov/components, mirrored to every site (and `scripts/bundle.css` where tracked). Change it there first, then run `node scripts/check-sync.js` in components. That script also fails on any button class that is not in the allowed set.
+- Button CSS: `public/css/scangov.css` in ScanGov/components, mirrored to every site (and `scripts/bundle.css` where tracked). Change it there first. Then do a full sync: copy the whole file to every site, including my.scangov.com, even when the site is several changes behind. Never add only your lines on top of an older copy. Then run `node scripts/check-sync.js` in components. That script also fails on any button class that is not in the allowed set.
 - A live reference with every state: `public/templates/buttons.html` in ScanGov/components.
 - Related skills: `tool-page` (the tool form submit) and `report-format` (the raw-data download).

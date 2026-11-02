@@ -66,4 +66,4 @@ The policy generator and the RFP generator submit to a `done` page and a `print`
 
 ## Changing the shared form
 
-Edit `_includes/tool-form.html` in ScanGov/components first, then copy it to scangov-com. Both tool pages must still render the same way afterward.
+Edit `_includes/tool-form.html` in ScanGov/components first, then copy it to scangov-com. Always do a full sync of any shared file: copy the whole file to every site, never only your lines (see the `buttons` skill, "Where this lives"). Both tool pages must still render the same way afterward.
