@@ -45,7 +45,7 @@ Link that goes somewhere:
 Action:
 
 ```html
-<button type="button" class="btn btn-outline-primary" id="js-copy-link">Copy link</button>
+<button type="button" class="btn btn-outline-primary" id="js-copy-link">Link</button>
 ```
 
 Form submit (a form has exactly one):
@@ -100,7 +100,7 @@ A Download button that offers several formats is one secondary button with a `dr
 
 Busy: set `disabled`, swap the icon for `fa-compact-disc fa-spin`, use a present-tense label ("Scanning..."), and restore both when it finishes.
 
-Reset after a primary, on a form that takes input: a secondary `<button type="reset" class="btn btn-outline-primary">Reset</button>`. The tool form include adds it.
+Reset after a primary, on a form that takes input: a secondary button with the `fa-rotate-left` icon: `<button type="reset" class="btn btn-outline-primary"><i class="fa-solid fa-rotate-left" aria-hidden="true"></i> Reset</button>`. The tool form include adds it.
 
 Back, to the page the person came from: a secondary link with the left arrow, never a plain text link.
 
@@ -191,6 +191,6 @@ grep -rnE 'class="[^"]*\bbtn\b' <changed files>
 
 ## Where this lives
 
-- Button CSS: `public/css/scangov.css` in ScanGov/components, mirrored to every site (and `scripts/bundle.css` where tracked). Change it there first, then run `node scripts/check-sync.js` in components. That script also fails on any button class that is not in the allowed set.
+- Button CSS: `public/css/scangov.css` in ScanGov/components, mirrored to every site (and `scripts/bundle.css` where tracked). Change it there first. Then do a full sync: copy the whole file to every site, including my.scangov.com, even when the site is several changes behind. Never add only your lines on top of an older copy. Then run `node scripts/check-sync.js` in components. That script also fails on any button class that is not in the allowed set.
 - A live reference with every state: `public/templates/buttons.html` in ScanGov/components.
 - Related skills: `tool-page` (the tool form submit) and `report-format` (the raw-data download).

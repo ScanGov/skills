@@ -11,7 +11,7 @@ Reference for reflecting a shipped or changed ScanGov feature on scangov.com. Ge
 
 ## Features listing vs. news post — most updates are listing-only
 
-Every dashboard capability belongs on the features listing. A news post is the exception, not the default: dashboard features like Pulse, Tasklist, Scan management, and Status bar have a features.json entry and **no** news post — the listing is a standing reference, not an announcement. A news post is for a public self-serve tool with its own URL (good-bot-scan, the readability scanner, the RFP builder) or a launch big enough to be its own story. A UI redesign or incremental improvement to an existing dashboard feature is listing-only: update the entry's `items`, don't write a post about it.
+Every dashboard capability belongs on the features listing. A news post is the exception, not the default: dashboard features like Pulse, Tasklist, Scan management, and Status bar have a features.json entry and **no** news post — the listing is a standing reference, not an announcement. A news post is for a public self-serve tool with its own URL (good-bot-scan, the readability scanner, the RFP generator) or a launch big enough to be its own story. A UI redesign or incremental improvement to an existing dashboard feature is listing-only: update the entry's `items`, don't write a post about it.
 
 If unsure which this is, check `content/news/` for precedent on similarly-scoped past changes before drafting a post.
 
@@ -54,6 +54,8 @@ Also check `_data/features.json` for a theme word before reusing it in a new `de
 
 - Lives at `content/news/YYYY-MM-DD-slug.md`.
 - **Never set a plain `permalink:`.** `content/news/news.11tydata.json` sets the default permalink via `eleventyComputed.permalink`, slugified from `title`. A later title edit silently moves a plain `permalink:` page's URL. Only set `eleventyComputed.permalink` yourself when the URL needs to be pinned against future title edits (e.g. a report's working title is likely to change before publish).
+- **Every new post starts as a draft.** Set `draft: true` in the frontmatter when creating it. Drafts show on the local dev server and are left out of the production build (`eleventy.config.js`, the `drafts` preprocessor), so nothing goes live by accident. The post goes live only when the user says **"publish post"**: then set `draft: false` and nothing else (leave `date` as is unless asked). Never set `draft: false` on a new post on your own.
+- Video: set `video` to the YouTube ID in the frontmatter. The post layout puts the video at the end of the post, under a "Demo" h2 that it adds itself. Do not write your own Demo heading or embed in the body. Now scanning pages (`now-scanning` tag) are the exception: they are video reviews, so the video stays at the top.
 - Frontmatter: `draft`, `date`, `author`, `title`, `description` (see "Voice" above), `topics` (array), optional `ogImage`/`ogImageAlt`, `video`, `modified`.
 - Structure for a feature-launch post (not a report — see `report-format` for that structure): intro paragraph, then sections like `## What it does`, `## How it works`, and a closing CTA. Use `content/news/2026-09-08-good-bot-scan.md`, `content/news/2025-10-27-scangov-readability-scanner.md`, and `content/news/2026-09-20-broken-link-checker.md` as templates. `## How it works` is a `-` list unless the reader must do the steps in order (see `content-style`'s `<ol>` rule) — a list of what the feature does isn't a sequence.
 - Link to two places, not just one: the feature's own docs.scangov.org page — the one that explains the whole feature, not a page that only partially covers it (e.g. `/broken-links/`, not `/status/`, for a feature whose badge glossary lives on `/status/` but whose own docs page is `/broken-links/`) — and its `/features/{{slug}}/` page on scangov-com. Don't re-explain detail that belongs on either page.
@@ -73,5 +75,5 @@ Optional. Two conventions in use: `public/assets/img/pages/` (feature-launch pos
 1. Identify what shipped — check the current conversation, or `git log`/`git diff` in the feature's own repo (e.g. `my.scangov.com`), for what to reflect.
 2. Add or update the features.json entry.
 3. Decide whether a news post is warranted (see above) — default to no.
-4. If warranted, draft the news post per the structure above, following `content-style` for voice, and link to both the docs page and the features page (see "News post" above) — check the docs page actually exists (see `docs-content`) rather than assuming one does.
-5. Leave the diff for review — don't commit unless asked.
+4. If warranted, write the news post as a draft (`draft: true`) per the structure above, following `content-style` for voice, and link to both the docs page and the features page (see "News post" above) — check the docs page actually exists (see `docs-content`) rather than assuming one does.
+5. Leave the diff for review — don't commit unless asked. A draft post can be committed and merged; it stays hidden in production until "publish post" turns the draft flag off.
