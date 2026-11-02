@@ -17,6 +17,7 @@ required structure, and the shared charting system.
 Run `node scripts/new-report.js "Working title"` from the `scangov-com`
 repo root. It scaffolds a new file in `content/news/` with:
 - `isReport: true` in frontmatter, so tooling can find it
+- `draft: true`, so the report shows only on the local dev server until the user says "publish post". Then set `draft: false` and nothing else. The script already sets it. See `feature-announcement` for how drafts work.
 - an `eleventyComputed.permalink` fixed at creation time — **this matters**:
   scangov-com derives news URLs from `title` by default, so a later title
   edit silently moves the page and orphans the old URL. A report's working

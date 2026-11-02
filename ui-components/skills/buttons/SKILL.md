@@ -45,7 +45,7 @@ Link that goes somewhere:
 Action:
 
 ```html
-<button type="button" class="btn btn-outline-primary" id="js-copy-link">Copy link</button>
+<button type="button" class="btn btn-outline-primary" id="js-copy-link">Link</button>
 ```
 
 Form submit (a form has exactly one):
@@ -100,7 +100,7 @@ A Download button that offers several formats is one secondary button with a `dr
 
 Busy: set `disabled`, swap the icon for `fa-compact-disc fa-spin`, use a present-tense label ("Scanning..."), and restore both when it finishes.
 
-Reset after a primary, on a form that takes input: a secondary `<button type="reset" class="btn btn-outline-primary">Reset</button>`. The tool form include adds it.
+Reset after a primary, on a form that takes input: a secondary button with the `fa-rotate-left` icon: `<button type="reset" class="btn btn-outline-primary"><i class="fa-solid fa-rotate-left" aria-hidden="true"></i> Reset</button>`. The tool form include adds it.
 
 Back, to the page the person came from: a secondary link with the left arrow, never a plain text link.
 
