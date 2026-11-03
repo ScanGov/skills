@@ -61,7 +61,7 @@ Use the shared include from ScanGov/components, `_includes/tool-form.html`. Set 
 
 ## Tools that generate a document
 
-The policy generator and the RFP generator submit to a `done` page and a `print` page, both `sitemap: false` and `noindex: true`. The done page uses `_includes/builder-actions.html` (Edit, Link, Copy, Download, Print, Reset; Edit comes first and Reset last; Reset links to the blank form, so it clears the answers) and `public/js/builder-actions.js`. Do not write inline `onclick` handlers. Do not ship a button for something that is not built.
+The policy generator and the RFP generator submit to a `done` page and a `print` page, both `sitemap: false` and `noindex: true`. The done page uses `_includes/action-buttons.html` and `public/js/action-buttons.js` from ScanGov/components (Edit, Copy link, Copy, Download, Print, Reset; icon-only except Reset; Edit first and Reset last; Reset links to the blank form, so it clears the answers). Set `actionsContentId`, `actionsFileName`, `actionsEditHref`, `actionsPrintHref` and `actionsResetHref` before the include. See the `buttons` skill for the formats and messages. Do not write inline `onclick` handlers. Do not ship a button for something that is not built.
 
 ---
 

@@ -20,7 +20,9 @@ All ScanGov sites follow these rules. If you find an older pattern in a repo, re
 
 - One primary per view, placed first. Secondary buttons follow it.
 - Two primaries side by side is always wrong. Make one of them secondary.
-- Size: default. `btn-sm` only inside a table row or a toolbar. Never `btn-lg`.
+- Size: default. Never `btn-lg`. `btn-sm` only in these places: an icon-only page action toolbar; a table row or cell; a row action inside a card or list; an "Add" button inside a form (Add website). Never `btn-sm` on a form submit, Generate, a call to action (Plans, Demo), or a modal confirm. One size per group of buttons; do not mix sm and default in a row.
+- Buttons side by side sit in a flex container with `gap-2`. Never separate them with whitespace only. `scangov.css` adds a gap for a missed case, but do not rely on it.
+- `btn-sm` has its own, lighter shadow. Cards, inputs and regular buttons keep the shared one. Do not set a shadow on a button.
 
 ---
 
@@ -69,32 +71,30 @@ Icon only (for example at phone width): keep a name for screen readers, and make
   <i class="fa-solid fa-wand-magic-sparkles" aria-hidden="true"></i><span class="d-none d-md-inline ms-2">Demo</span></a>
 ```
 
-A row of actions (page actions such as Rescan, Download, Share): secondary `btn-sm` buttons in one flex container. A menu hangs off a button in a `dropdown` wrapper.
+### Action buttons
+
+Page and document actions (Edit, Copy link, Copy, Download, Print, Share, Rescan, Reset) are one set, in that order, on every site. Use `_includes/action-buttons.html` and `public/js/action-buttons.js` from ScanGov/components. Do not hand-write them.
+
+- Icon-only and `btn-sm`, with `aria-label` and `title`. Reset keeps its text because it clears what the person entered.
+- Keep the text on an action when: it stands alone, it is consequential (Reset, Delete, Remove), its icon is not familiar, or it is the primary action in a form. Icon-only fits a toolbar of repeated actions with familiar icons.
+- One icon per function: Edit `fa-pen`, Copy link `fa-link`, Copy `fa-copy`, Download `fa-download`, Print `fa-print`, Share `fa-share-from-square`, Rescan `fa-arrows-rotate`, Reset `fa-rotate-left`, Back `fa-arrow-left`.
+- "Copy link", not "Link". Copy is one menu (Text, Markdown). Download is one menu (HTML, JSON, Markdown, Text, Word). A format that does not apply is left out: formats that need a document are removed when the page has none, a menu with one format becomes a single button, and a menu with none is removed. Site formats (CSV, PDF) are added with `window.sgActions.register`.
+- Messages, the same everywhere: an instant action shows a check in the button for 2 seconds and a live region announces it ("Link copied", "Markdown copied", "Downloaded {file}"). A failure shows a toast with text. A long action (rescan, generate) is disabled with a spinner while it runs, then a toast says what happened. Do not use an alert box or a text line for these. Use `window.sgActions.succeed`, `fail`, `setState` and `announce` from JS-built buttons.
+- Buttons built in JavaScript use the same markup: two icons in the button (the action and a hidden check, plus a hidden spinner when it can be busy), in that order.
 
 ```html
-<div class="actions d-flex flex-wrap gap-2">
-  <button type="button" class="btn btn-outline-primary btn-sm" id="js-rescan-btn">
-    <i class="fa-solid fa-arrows-rotate" aria-hidden="true"></i> Rescan site
+<div class="d-flex flex-wrap gap-2" data-actions data-content="#document" data-filename="name">
+  <button type="button" class="btn btn-outline-primary btn-sm" data-action="copy-link" aria-label="Copy link" title="Copy link">
+    <i class="fa-solid fa-link" aria-hidden="true"></i><i class="fa-solid fa-check d-none" aria-hidden="true"></i>
   </button>
-  <div class="dropdown">
-    <button type="button" class="btn btn-outline-primary btn-sm" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Share" title="Share">
-      <i class="fa-solid fa-share-from-square" aria-hidden="true"></i>
+  <div class="dropdown" data-menu="download">
+    <button type="button" id="download-menu" class="btn btn-outline-primary btn-sm" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download" title="Download">
+      <i class="fa-solid fa-download" aria-hidden="true"></i><i class="fa-solid fa-check d-none" aria-hidden="true"></i>
     </button>
-    <ul class="dropdown-menu dropdown-menu-end">...</ul>
+    <ul class="dropdown-menu" aria-labelledby="download-menu">
+      <li class="small"><button type="button" class="dropdown-item" data-download="md">Markdown (.md)</button></li>
+    </ul>
   </div>
-</div>
-```
-
-A Download button that offers several formats is one secondary button with a `dropdown` menu, not a button per format. Label it "Download". Each menu item is a `dropdown-item` button named for the format and its extension, such as "Word (.doc)", "HTML (.html)", "Markdown (.md)" and "JSON (.json)". See `_includes/builder-actions.html` in scangov-com.
-
-```html
-<div class="dropdown">
-  <button type="button" id="download-menu" class="btn btn-outline-primary" data-bs-toggle="dropdown" aria-expanded="false">
-    <i class="fa-solid fa-download" aria-hidden="true"></i> Download
-  </button>
-  <ul class="dropdown-menu" aria-labelledby="download-menu">
-    <li><button type="button" class="dropdown-item" data-download="md">Markdown (.md)</button></li>
-  </ul>
 </div>
 ```
 
@@ -178,7 +178,10 @@ grep -rnE 'btn-(primary-outline|secondary-outline|outline-secondary|secondary|lg
 grep -rnE 'class="[^"]*\bbtn\b' <changed files>
 ```
 
-- [ ] Every `btn` is `btn-primary` or `btn-outline-primary`, with `btn-sm` only in a table row or toolbar.
+- [ ] Every `btn` is `btn-primary` or `btn-outline-primary`, with `btn-sm` only where the rules above allow it, and one size per group.
+- [ ] Buttons side by side are in `d-flex gap-2`.
+- [ ] Page actions come from the action-buttons include, are icon-only with `aria-label` and `title`, and use the shared messages. `check-sync` flags an icon-only button with no `aria-label`.
+- [ ] The call-to-action band copies with `data-action="copy-page-link"` and `data-action="copy-page"`, not its own script.
 - [ ] One primary per view, first in the group.
 - [ ] `<a>` goes somewhere, `<button>` does something, and a form submit is `type="submit"`.
 - [ ] The label is a one- or two-word verb, and the same action uses the same label everywhere.
