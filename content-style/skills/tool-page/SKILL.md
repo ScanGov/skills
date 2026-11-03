@@ -52,6 +52,7 @@ Use the shared include from ScanGov/components, `_includes/tool-form.html`. Set 
 - No placeholder on a field unless it shows a format the person must follow. Website and owner fields get none.
 - List the options in the order of the ScanGov indicators the tool covers, with the one the tool is about first.
 - A field that can repeat (websites, tools) starts with one field, or none, and an "Add" `btn-sm` button. The button is disabled until every field in the list is filled in. Reset removes the added fields.
+- A tool with a demo video sets `video` (the YouTube ID) in its front matter and ends its info box with `{% include "tool-demo.html" %}`, after the FAQ. The include adds the "Demo" h2, the embed and the transcript, and renders nothing when there is no video. It wraps the section in `post-content`, so the video, the transcript accordion and their spacing look the same as on a news post, not like the info box. Do not restyle them inside the box. Put the include in every tool's info box so a video can be added later.
 - Optional settings go in one collapsed accordion below the main fields, labelled "Customize" with the `fa-sliders` icon (`<i class="fa-solid fa-sliders me-2" aria-hidden="true"></i>`). Open it when answers are restored. Use this icon and label for every Customize group on every site.
 - Show only options that change the result. If an option does not change the output, cut it.
 - The tool's script binds to the form by `toolFormId`. Do not bind to a CSS class.
