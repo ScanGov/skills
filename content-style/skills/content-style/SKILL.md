@@ -51,6 +51,8 @@ If the feature is about comparing groups (rankings), name the groups as data ("f
 
 ## Structure
 
+**Cards first, "What we scan" below.** When a page shows cards (pulse pages, dashboards, rankings summaries), the cards come first and any "What we scan" section sits below them.
+
 **Sentence case headings.** Capitalize the first word and proper nouns only.
 - ~~"How To Fix Your Accessibility Score"~~ → "How to fix your accessibility score"
 - Proper nouns and product names keep their casing: "How ScanGov calculates your score"

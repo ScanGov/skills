@@ -20,9 +20,11 @@ All ScanGov sites follow these rules. If you find an older pattern in a repo, re
 
 - One primary per view, placed first. Secondary buttons follow it.
 - Two primaries side by side is always wrong. Make one of them secondary.
-- Size: default. Never `btn-lg`. `btn-sm` only in these places: an icon-only page action toolbar; a table row or cell; a row action inside a card or list; an "Add" button inside a form (Add website). Never `btn-sm` on a form submit, Generate, a call to action (Plans, Demo), or a modal confirm. One size per group of buttons; do not mix sm and default in a row.
+- Size: default. Never `btn-lg`. `btn-sm` only in these places: an icon-only page action toolbar; a table row or cell; a row action inside a card or list; an "Add" button inside a form (Add website). Never `btn-sm` on a form submit, Generate, a call to action (Get started, Schedule demo), or a modal confirm. One size per group of buttons; do not mix sm and default in a row.
 - Buttons side by side sit in a flex container with `gap-2`. Never separate them with whitespace only. `scangov.css` adds a gap for a missed case, but do not rely on it.
-- `btn-sm` has its own, lighter shadow. Cards, inputs and regular buttons keep the shared one. Do not set a shadow on a button.
+- `btn-sm` has its own, lighter shadow. Cards, inputs and regular buttons keep the shared one. Do not set a shadow on a button. Every `btn-sm` shows that shadow; if one does not, the site is missing the latest `scangov.css`.
+- Call to action band: "Get started" (primary) and "Schedule demo" (secondary). The band has no copy link or copy buttons; every site uses the one `cta.html` from components.
+- Search box submit: the form carries `search-form`, and `scangov.css` makes its `btn-primary` black in light mode and white in dark mode. Do not use blue for a search box.
 
 ---
 
@@ -41,7 +43,7 @@ All ScanGov sites follow these rules. If you find an older pattern in a repo, re
 Link that goes somewhere:
 
 ```html
-<a href="/plans/" class="btn btn-primary">Plans</a>
+<a href="/plans/" class="btn btn-primary">Get started</a>
 ```
 
 Action:
@@ -67,8 +69,8 @@ With an icon (leading, decorative):
 Icon only (for example at phone width): keep a name for screen readers, and make it contain the visible word.
 
 ```html
-<a href="/demo/" class="btn btn-outline-primary" aria-label="Demo">
-  <i class="fa-solid fa-wand-magic-sparkles" aria-hidden="true"></i><span class="d-none d-md-inline ms-2">Demo</span></a>
+<a href="/demo/" class="btn btn-outline-primary" aria-label="Schedule demo">
+  <i class="fa-solid fa-wand-magic-sparkles" aria-hidden="true"></i><span class="d-none d-md-inline ms-2">Schedule demo</span></a>
 ```
 
 ### Action buttons
