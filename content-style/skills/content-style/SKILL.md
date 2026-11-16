@@ -88,9 +88,11 @@ If the feature is about comparing groups (rankings), name the groups as data ("f
 
 **Descriptive link text.** Never "click here" or "read more" alone — the link text should say what it goes to.
 
-**Don't lead with "See."** "See the status guide," "See it in your dashboard" — state the fact or benefit directly and let the descriptive link text carry the reference; don't front-load the sentence or heading with "See."
+**Don't lead with "See" or "View."** "See the status guide," "See it in your dashboard," "View report" — state the fact or benefit directly and let the descriptive link text carry the reference; don't front-load the sentence, heading, or button with "See" or "View." When a sentence only points to a page, "Visit" works: "Visit Pulse for more." For a link or button that opens something, name it: "Open report."
 - ~~"See the docs for how it works."~~ → "The docs explain how it works."
 - ~~"## See it in your dashboard"~~ → "## Find your broken links" (name the benefit, not the act of looking)
+- ~~"See Pulse for more."~~ → "Visit Pulse for more."
+- ~~"View report"~~ → "Open report"
 
 **Numerals.** Spell out one through nine; use numerals for 10 and above.
 

@@ -203,6 +203,13 @@ own conventions:
 - Requires the `numberFormat` Nunjucks filter (already registered in
   `eleventy.config.js`) for the data table's number formatting.
 
+**No numbers inside bars.** A bar, or a segment of a stacked (part-to-whole)
+bar, carries no value label, so there is no "A 45%" printed on the fill. The
+number lives in the hover tip and in the data table under the chart. A single
+bar's value may sit beside the bar, outside the fill. This holds for every
+chart on every site: the Chart.js bars here, and the static bars and stacked
+bars on scangov.org.
+
 **Bars are always ordered most to least.** The include sorts `chartRows` by
 `value` descending automatically — you don't need to pre-sort the data you
 pass in, and both the chart and its accessible data table use the same
